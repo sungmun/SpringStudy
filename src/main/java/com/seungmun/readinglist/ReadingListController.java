@@ -1,5 +1,4 @@
 package com.seungmun.readinglist;
-
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,30 +10,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 @RequestMapping("/")
 public class ReadingListController {
-	private static final String reader = "craig";
 
-	private ReadingListRepository readingListRepository;
+    private static final String reader = "craig";
 
-	@Autowired
-	public ReadingListController(ReadingListRepository readingListRepository) {
-		this.readingListRepository = readingListRepository;
-	}
+    private ReadingListRepository readingListRepository;
+
+    @Autowired
+    public ReadingListController(ReadingListRepository readingListRepository) {
+        this.readingListRepository = readingListRepository;
+    }
 
 	@RequestMapping(method = RequestMethod.GET)
-	public String readersBook(Model model) {
-		List<Book> readingList = readingListRepository.findByReader(reader);
-		if (readingList != null) {
-			model.addAttribute("books", readingList);
-		}
-		return "readingList";
-	}
-
+    public String readersBooks(Model model) {
+        List<Book> readingList = readingListRepository.findByReader(reader);
+        if (readingList != null) {
+            model.addAttribute("books", readingList);
+        }
+        return "readingList";
+    }
+  
 	@RequestMapping(method = RequestMethod.POST)
-	public String addToReadingList(Book book) {
-		book.setReader(reader);
-		readingListRepository.save(book);
-		return "redirect:/";
-	}
+    public String addToReadingList(Book book) {
+        book.setReader(reader);
+        readingListRepository.save(book);
+        return "redirect:/";
+    }
 
-		
 }
