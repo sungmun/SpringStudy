@@ -1,4 +1,4 @@
-package com.seungmun.springStudy;
+package com.seungmun.readinglist;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
