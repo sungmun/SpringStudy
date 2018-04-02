@@ -11,7 +11,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 @Entity
-public class Reder implements UserDetails{
+public class Reader implements UserDetails{
 	private static final long serialVersionUID=1L;
 	
 	@Id
